@@ -5,11 +5,11 @@ package footer
 
 //lint:file-ignore SA4006 This context is only used if a nested component is present.
 
+import "github.com/a-h/templ"
+import templruntime "github.com/a-h/templ/runtime"
+
 import (
 	"gin-starter/templates/layouts/header"
-
-	"github.com/a-h/templ"
-	templruntime "github.com/a-h/templ/runtime"
 )
 
 func Footer(menuItems []header.MenuItem, currentYear int) templ.Component {
