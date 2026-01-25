@@ -1,10 +1,11 @@
 package templates
 
 import (
-	pages "gin-starter/templates/pages"
 	layouts "gin-starter/templates/layouts"
-	header "gin-starter/templates/layouts/header"
 	footer "gin-starter/templates/layouts/footer"
+	header "gin-starter/templates/layouts/header"
+	pages "gin-starter/templates/pages"
+
 	"github.com/a-h/templ"
 )
 
