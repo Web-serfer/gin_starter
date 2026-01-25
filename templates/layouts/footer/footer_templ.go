@@ -41,7 +41,7 @@ func Footer(menuItems []header.MenuItem, currentYear int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h3><p class=\"text-gray-300\">Наша компания предоставляет высококачественные услуги.</p></div><div><h3 class=\"text-lg font-bold mb-4\">Контакты</h3><ul class=\"space-y-2 text-gray-300\"><li>Email: info@example.com</li><li>Телефон: +7 (XXX) XXX-XX-XX</li></ul></div><div><h3 class=\"text-lg font-bold mb-4\">Ссылки</h3><ul class=\"space-y-2\"><li><a href=\"/\" class=\"text-gray-300 hover:text-white\">Главная</a></li><li><a href=\"/about\" class=\"text-gray-300 hover:text-white\">О нас</a></li></ul></div></div><div class=\"border-t border-gray-700 mt-8 pt-8 text-center text-gray-400\"><p>&copy; ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h3><p class=\"text-gray-300\">Наша компания предоставляет высококачественные услуги.</p></div><div><h3 class=\"text-lg font-bold mb-4\">Контакты</h3><ul class=\"space-y-2 text-gray-300\"><li>Email: info@example.com</li><li>Телефон: +7 (XXX) XXX-XX-XX</li></ul></div><div><h3 class=\"text-lg font-bold mb-4\">Ссылки</h3><ul class=\"space-y-2\"><li><a href=\"/\" class=\"text-gray-300 hover:text-white\">Главная</a></li><li><a href=\"/about\" class=\"text-gray-300 hover:text-white\">О проекте</a></li></ul></div></div><div class=\"border-t border-gray-700 mt-8 pt-8 text-center text-gray-400\"><p>&copy; ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

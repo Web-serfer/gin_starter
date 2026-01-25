@@ -1,4 +1,4 @@
-package templates
+package pages
 
 import (
 	layouts "gin-starter/templates/layouts"
@@ -64,6 +64,6 @@ templ indexContent() {
 			/>
 			<p class="text-center text-lg" x-show="name">Привет, <strong x-text="name"></strong>!</p>
 			<p class="text-center text-lg" x-show="!name">Пожалуйста, введите ваше имя</p>
-		</div>		
+		</div>
 	</div>
 }

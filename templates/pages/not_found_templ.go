@@ -13,7 +13,7 @@ import (
 	"gin-starter/templates/layouts/header"
 )
 
-func AboutPage(canonicalURL string, menuItems []header.MenuItem) templ.Component {
+func NotFoundPage(canonicalURL string, menuItems []header.MenuItem) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -34,7 +34,7 @@ func AboutPage(canonicalURL string, menuItems []header.MenuItem) templ.Component
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = layouts.Layout("О нас", "Страница о нас приложения Gin Starter", canonicalURL, menuItems, aboutContent()).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layouts.Layout("Страница не найдена", "Ошибка 404 - запрашиваемая страница не существует", canonicalURL, menuItems, notFoundContent()).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -42,7 +42,7 @@ func AboutPage(canonicalURL string, menuItems []header.MenuItem) templ.Component
 	})
 }
 
-func aboutContent() templ.Component {
+func notFoundContent() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -63,7 +63,7 @@ func aboutContent() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"text-center\"><h2 class=\"text-2xl font-bold\">О нас</h2><p class=\"mt-4\">Это страница \"О нас\".</p></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6\"><div class=\"max-w-lg w-full text-center space-y-8\"><!-- Error code --><div class=\"relative inline-block\"><div class=\"w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center shadow-xl\"><span class=\"text-5xl font-extrabold text-white tracking-tight\">404</span></div><!-- Optional subtle glow or accent --><div class=\"absolute -inset-2 rounded-full bg-blue-200 opacity-30 blur\"></div></div><!-- Title --><h1 class=\"text-3xl sm:text-4xl font-bold text-gray-900 leading-tight\">Страница не найдена</h1><!-- Description --><p class=\"text-base sm:text-lg text-gray-600 max-w-md mx-auto leading-relaxed\">Запрашиваемая вами страница не существует или была перемещена.</p><!-- Primary action --><div class=\"pt-4\"><a href=\"/\" class=\"inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200\">Вернуться на главную</a></div><!-- Secondary help --><div class=\"text-sm text-gray-500 pt-6\"><p class=\"mb-2\">Если вы уверены, что страница должна существовать:</p><a href=\"/contact\" class=\"font-medium text-blue-600 hover:text-blue-800 hover:underline transition-colors\">Свяжитесь с нами</a></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

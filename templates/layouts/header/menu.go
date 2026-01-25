@@ -10,7 +10,7 @@ type MenuItem struct {
 func GetDefaultMenuItems() []MenuItem {
 	return []MenuItem{
 		{URL: "/", Text: "Главная"},
-		{URL: "/about", Text: "О нас"},
+		{URL: "/about", Text: "О проекте"},
 		{URL: "/contact", Text: "Контакты"},
 		{URL: "/users", Text: "Пользователи"},
 	}

@@ -31,6 +31,10 @@ func UsersPage(canonicalURL string, menuItems []header.MenuItem) templ.Component
 	return pages.UsersPage(canonicalURL, menuItems)
 }
 
+func NotFoundPage(canonicalURL string, menuItems []header.MenuItem) templ.Component {
+	return pages.NotFoundPage(canonicalURL, menuItems)
+}
+
 // Обертки для шаблонов макетов
 func Layout(title string, description string, canonicalURL string, menuItems []header.MenuItem, body templ.Component) templ.Component {
 	return layouts.Layout(title, description, canonicalURL, menuItems, body)

@@ -41,4 +41,7 @@ func SetupRoutes(r *gin.Engine, pageHandler *handlers.PageHandler, userApiHandle
 		api.POST("/users", userApiHandler.CreateUser)
 		api.DELETE("/users/:id", userApiHandler.DeleteUser)
 	}
+
+	// 6. Обработчик 404 для всех остальных маршрутов
+	r.NoRoute(handlers.NotFoundHandler)
 }

@@ -37,3 +37,21 @@ func ContactHandler(c *gin.Context) {
 		c.String(http.StatusInternalServerError, "Internal Server Error")
 	}
 }
+
+// NotFoundHandler обработчик для страницы 404
+func NotFoundHandler(c *gin.Context) {
+	// Получаем меню
+	menuItems := templates.GetDefaultMenuItems()
+
+	// Формируем canonical URL
+	canonicalURL := c.Request.URL.Scheme + "://" + c.Request.Host + c.Request.URL.Path
+
+	// Устанавливаем статус 404 Not Found
+	c.Status(http.StatusNotFound)
+
+	// Рендерим шаблон
+	if err := templates.NotFoundPage(canonicalURL, menuItems).Render(c.Request.Context(), c.Writer); err != nil {
+		log.Printf("Template render error: %v", err)
+		c.String(http.StatusInternalServerError, "Internal Server Error")
+	}
+}
