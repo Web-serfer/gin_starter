@@ -1,0 +1,17 @@
+package templates
+
+import (
+	layouts "gin-starter/templates/layouts"
+	"gin-starter/templates/layouts/header"
+)
+
+templ AboutPage(canonicalURL string, menuItems []header.MenuItem) {
+	@layouts.Layout("О нас", "Страница о нас приложения Gin Starter", canonicalURL, menuItems, aboutContent())
+}
+
+templ aboutContent() {
+	<div class="text-center">
+		<h2 class="text-2xl font-bold">О нас</h2>
+		<p class="mt-4">Это страница "О нас".</p>
+	</div>
+}

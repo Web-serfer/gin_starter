@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Убедимся, что следующие классы включены в итоговый CSS:
+   space-x-8, hidden, md:flex, text-gray-600, hover:text-gray-900, font-medium
+*/

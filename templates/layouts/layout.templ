@@ -1,0 +1,43 @@
+package layouts
+
+import (
+	"time"
+	"gin-starter/templates/layouts/header"
+	"gin-starter/templates/layouts/footer"
+)
+
+templ Layout(title string, description string, canonicalURL string, menuItems []header.MenuItem, body templ.Component) {
+	<!doctype html>
+	<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>{title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		// Security Meta Tags
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="description" content={description} />
+		// Favicons
+		<link rel="icon" type="image/x-icon" href="/static/images/favicons/favicon.ico">
+		<link rel="icon" type="image/svg+xml" href="/static/images/favicons/favicon.svg">
+		<link rel="icon" type="image/png" sizes="96x96" href="/static/images/favicons/favicon-96x96.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicons/apple-touch-icon.png">
+		<link rel="manifest" href="/static/images/favicons/site.webmanifest">
+		<meta name="theme-color" content="#ffffff">
+		<link rel="stylesheet" href="/static/css/tailwind.css">
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<script src="/static/js/app.js"></script>
+	</head>
+	<body>
+		@header.Header(menuItems)
+		<div class="container mx-auto p-4">
+			<main>
+				@body
+			</main>
+		</div>
+		@footer.Footer(menuItems, time.Now().Year())
+	</body>
+	</html>
+}

@@ -1,0 +1,13 @@
+{
+  "name": "gin-starter",
+  "version": "1.0.0",
+  "description": "Starter template for Gin framework with templ, Tailwind CSS and PostgreSQL",
+  "main": "",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./static/css/input.css -o ./static/css/tailwind.css --watch",
+    "build:css": "npx tailwindcss -i ./static/css/input.css -o ./static/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

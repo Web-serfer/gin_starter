@@ -1,0 +1,10 @@
+/* Это специальный файл для safelist в Tailwind CSS */
+/* Он гарантирует, что указанные классы будут включены в итоговый CSS */
+
+/* Классы для меню навигации */
+.space-x-8
+.hidden
+.md\:flex
+.text-gray-600
+.hover\:text-gray-900
+.font-medium

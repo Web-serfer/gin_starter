@@ -1,0 +1,28 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "cmd /c \"templ generate && go build -o ./tmp/main.exe ./cmd/server/main.go\""
+  bin = "tmp\\main.exe"
+
+  # 2 секунды - задержка для Windows, чтобы templ и сервер успели всё обработать
+  delay = 2000
+
+  # Air следит за этими расширениями
+  include_ext = ["go", "templ", "html", "css", "js"]
+
+  exclude_dir = ["tmp", "vendor", "static", "node_modules"]
+  exclude_regex = ["_test.go", "_templ.go"]
+
+  # Настройки для стабильности процесса в Windows
+  send_interrupt = false
+  stop_on_error = true
+  kill_delay = "1000ms"
+
+[proxy]
+  enabled = true
+  proxy_port = 7331
+  app_port = 8080
+  host = "127.0.0.1"
+  reload = true
+  app_start_timeout = 60000

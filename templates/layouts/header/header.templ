@@ -1,0 +1,22 @@
+package header
+
+templ Header(menuItems []MenuItem) {
+	<header class="bg-white shadow-md sticky top-0 z-50">
+		<div class="container mx-auto px-4">
+			<div class="flex justify-between items-center py-4">
+				<div class="flex items-center">
+					@Logo()
+				</div>
+				<nav class="hidden md:flex space-x-8">
+					<!-- Используем цикл для генерации пунктов меню -->
+					for _, item := range menuItems {
+						<a href={ item.URL } class="text-gray-600 hover:text-gray-900 font-medium">{ item.Text }</a>
+					}
+				</nav>
+				<button class="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors font-medium">
+					Войти
+				</button>
+			</div>
+		</div>
+	</header>
+}
