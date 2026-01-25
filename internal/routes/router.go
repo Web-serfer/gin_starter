@@ -3,26 +3,25 @@ package routes
 import (
 	"gin-starter/internal/handlers"
 
+	"github.com/gin-contrib/cors"
+	"github.com/gin-contrib/secure"
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRoutes(r *gin.Engine, pageHandler *handlers.PageHandler, imageHandler *handlers.ImageHandler) {
+// Обратите внимание: я разделил handlers на pageHandler и userApiHandler
+func SetupRoutes(r *gin.Engine, pageHandler *handlers.PageHandler, userApiHandler *handlers.UserHandler, imageHandler *handlers.ImageHandler) {
 
-	// --- 1. Middleware Безопасности ---
-	// Добавляем этот блок в начало функции, чтобы он применялся ко всем запросам
-	r.Use(func(c *gin.Context) {
-		// Защита от встраивания в iframe (убирает ошибку X-Frame-Options)
-		c.Header("X-Frame-Options", "DENY")
+	// 1. Безопасность (через библиотеку надежнее)
+	r.Use(secure.New(secure.Config{
+		FrameDeny:          true,
+		ContentTypeNosniff: true,
+		BrowserXssFilter:   true,
+	}))
 
-		// Дополнительная защита (рекомендуется)
-		c.Header("X-Content-Type-Options", "nosniff")
-		c.Header("X-XSS-Protection", "1; mode=block")
+	// 2. CORS (если нужно взаимодействие с внешним фронтендом)
+	r.Use(cors.Default())
 
-		c.Next()
-	})
-
-	// --- 2. Твои маршруты ---
-	// (Пример с использованием методов структур, как мы обсуждали)
+	// 3. Web-страницы (HTML)
 	web := r.Group("/")
 	{
 		web.GET("/", pageHandler.Home)
@@ -31,13 +30,15 @@ func SetupRoutes(r *gin.Engine, pageHandler *handlers.PageHandler, imageHandler 
 		web.GET("/users", pageHandler.Users)
 	}
 
+	// 4. Отдельный роут для картинок
 	r.GET("/optimized-image", imageHandler.OptimizedImage)
 
-	api := r.Group("/api")
+	// 5. API (JSON) с версионированием
+	api := r.Group("/api/v1")
 	{
-		api.GET("/users", pageHandler.GetUsers)
-		api.POST("/users", pageHandler.CreateUser)
-		api.DELETE("/users/:id", pageHandler.DeleteUser)
-		api.POST("/create-test-users", pageHandler.CreateTestUsers)
+		// Тут используем специализированный userApiHandler
+		api.GET("/users", userApiHandler.GetUsers)
+		api.POST("/users", userApiHandler.CreateUser)
+		api.DELETE("/users/:id", userApiHandler.DeleteUser)
 	}
 }

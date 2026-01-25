@@ -58,10 +58,11 @@ func main() {
 
 	// Создаем обработчики
 	pageHandler := handlers.NewPageHandler()
+	userHandler := handlers.NewUserHandler()
 	imageHandler := handlers.NewImageHandler(imageProcessor)
 
 	// 5. Маршруты
-	routes.SetupRoutes(r, pageHandler, imageHandler)
+	routes.SetupRoutes(r, pageHandler, userHandler, imageHandler)
 
 	// 6. Запуск сервера с Graceful Shutdown
 	srv := &http.Server{
