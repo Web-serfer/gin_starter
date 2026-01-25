@@ -6,7 +6,7 @@
 
 - Использование фреймворка [Gin](https://gin-gonic.com/) для маршрутизации
 - Использование шаблонизатора [templ](https://templ.guide/) для генерации HTML
-- Поддержка SQLite и PostgreSQL баз данных
+- Поддержка SQLite базы данных
 - Интеграция с Tailwind CSS (локально)
 - Использование Alpine.js для клиентской интерактивности
 - Автоматическая перезагрузка кода с помощью Air
@@ -66,8 +66,9 @@
 │   │   └── db_init.go       # Инициализация подключения к БД
 │   ├── handlers/            # Обработчики HTTP запросов
 │   │   ├── image.go         # Обработчики изображений
+│   │   ├── page_handler.go  # Обработчики страниц (HTML)
 │   │   ├── pages.go         # Обработчики страниц
-│   │   ├── page_handler.go  # Обработчики страниц (основные)
+│   │   ├── user_handler.go  # Обработчики API (новый)
 │   │   └── users.go         # Обработчики пользователей
 │   ├── image/               # Обработка изображений
 │   │   ├── cache.go         # Кеширование изображений
@@ -81,7 +82,7 @@
 │   │   ├── sqlite_user_repository.go  # Репозиторий пользователей SQLite
 │   │   └── user.go          # Интерфейс пользователя
 │   ├── routes/              # Маршруты приложения
-│   │   └── router.go        # Настройка маршрутов
+│   │   └── router.go        # Настройка маршрутов (обновленный)
 │   ├── service/             # Бизнес-логика
 │   │   └── image/           # Сервисы обработки изображений
 │   │       ├── cache.go     # Кеширование изображений
@@ -202,3 +203,5 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Alpine.js](https://alpinejs.dev/)
 - [Air](https://github.com/cosmtrek/air)
+- [gin-contrib/secure](https://github.com/gin-contrib/secure) - для безопасности
+- [gin-contrib/cors](https://github.com/gin-contrib/cors) - для поддержки CORS
